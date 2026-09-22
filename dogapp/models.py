@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 
 # Create your models here.
@@ -9,10 +8,10 @@ def between_one_and_five(value):
 
 class Breed(models.Model):
     class SizeOptions(models.TextChoices):
-        TINY = "Tiny", _("Tiny")
-        SMALL = "Small", _("Small")
-        MEDIUM = "Medium", _("Medium")
-        LARGE = "Large", _("Large")
+        TINY = "Tiny"
+        SMALL = "Small"
+        MEDIUM = "Medium"
+        LARGE = "Large"
 
     name = models.CharField(max_length=50)
     size = models.CharField(max_length=6, choices=SizeOptions.choices)
