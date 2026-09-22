@@ -19,7 +19,7 @@ from rest_framework.routers import DefaultRouter
 from dogapp.views import DogViewSet, BreedViewSet
 
 router = DefaultRouter()
-router.register(r'dogs', DogViewSet)
-router.register(r'breeds', BreedViewSet)
+router.register(r'api/dogs', DogViewSet)
+router.register(r'api/breeds', BreedViewSet)
 
 urlpatterns = router.urls
