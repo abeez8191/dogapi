@@ -1,4 +1,13 @@
 services:
+  db:
+    image: postgres:17
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
   app:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -6,3 +15,9 @@ services:
       - .:/app
     ports:
       - "8000:8000"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db
