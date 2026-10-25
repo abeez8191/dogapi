@@ -12,6 +12,8 @@ services:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
+      # This is how we can update source code without
+      # rebuilding the docker image
       - .:/app
     ports:
       - "8000:8000"
